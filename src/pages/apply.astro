@@ -67,35 +67,77 @@ const steps = [
   .step-num { font-family: var(--fd); font-size: 18px; }
   .offramp { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line-lt); }
 
-  /* ---- HubSpot form — dark-register overrides ----
-     HubSpot injects its own markup + stylesheet. We override by targeting its
-     class names, scoped under .ridgeline-apply-form. Some rules need !important
-     to beat HubSpot's defaults (notably the submit button + select dropdowns). */
+  /* ---- HubSpot form — full dark/light-register overrides ----
+     HubSpot injects its own markup + stylesheet and wins specificity on the
+     button and selects, so most rules need !important. This is a MULTI-STEP
+     form (note the Next button + progress bar), so we style .hs-button broadly
+     plus the step navigation and progress bar. */
+
+  /* fields + labels */
   .ridgeline-apply-form :global(.hs-form-field) { margin-bottom: 18px; }
-  .ridgeline-apply-form :global(.hs-form-field > label) {
-    font-family: var(--fm); font-size: 10px; letter-spacing: 1.5px;
-    text-transform: uppercase; color: var(--sage);
-    margin-bottom: 7px; display: block;
+  .ridgeline-apply-form :global(.hs-form-field label) {
+    font-family: var(--fm) !important; font-size: 10px !important; letter-spacing: 1.5px !important;
+    text-transform: uppercase !important; color: var(--ink) !important;
+    margin-bottom: 7px !important; display: block; font-weight: 500 !important;
   }
-  .ridgeline-apply-form :global(.hs-input) {
+  .ridgeline-apply-form :global(.hs-input),
+  .ridgeline-apply-form :global(input.hs-input),
+  .ridgeline-apply-form :global(select.hs-input),
+  .ridgeline-apply-form :global(textarea.hs-input) {
     width: 100% !important; background: #ffffff !important;
     border: 1px solid var(--line-lt) !important; border-radius: 7px !important;
     padding: 11px 13px !important; color: var(--ink) !important;
     font-family: var(--fb) !important; font-size: 14px !important;
+    box-shadow: none !important; height: auto !important;
   }
-  .ridgeline-apply-form :global(.hs-input:focus) { border-color: var(--tide) !important; outline: none !important; }
+  .ridgeline-apply-form :global(.hs-input:focus),
+  .ridgeline-apply-form :global(select.hs-input:focus) {
+    border-color: var(--tide) !important; outline: none !important;
+    box-shadow: 0 0 0 2px rgba(78,113,129,0.15) !important;
+  }
   .ridgeline-apply-form :global(.hs-input::placeholder) { color: var(--slate) !important; }
-  .ridgeline-apply-form :global(textarea.hs-input) { min-height: 90px; }
-  .ridgeline-apply-form :global(.hs-button) {
-    background: var(--gold) !important; color: var(--ridge) !important;
+  .ridgeline-apply-form :global(textarea.hs-input) { min-height: 90px !important; }
+
+  /* select dropdowns — HubSpot styles these heavily; force consistent look */
+  .ridgeline-apply-form :global(select.hs-input) {
+    appearance: none !important; -webkit-appearance: none !important;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%235A6068' stroke-width='1.5' fill='none' stroke-linecap='round'/></svg>") !important;
+    background-repeat: no-repeat !important; background-position: right 14px center !important;
+    padding-right: 36px !important;
+  }
+
+  /* phone / intl-tel field (country flag + code) */
+  .ridgeline-apply-form :global(.hs-input.hs-fieldtype-intl-phone),
+  .ridgeline-apply-form :global(.hs_phone .input) { display: flex !important; gap: 8px !important; }
+  .ridgeline-apply-form :global(.hs-fieldtype-intl-phone select) {
+    width: auto !important; min-width: 84px !important; flex: 0 0 auto !important;
+  }
+
+  /* BUTTON — primary gold. Covers submit + multi-step Next. */
+  .ridgeline-apply-form :global(.hs-button),
+  .ridgeline-apply-form :global(input[type="submit"]),
+  .ridgeline-apply-form :global(.actions input),
+  .ridgeline-apply-form :global(.hs-button.primary) {
+    background: var(--gold) !important; background-color: var(--gold) !important;
+    color: var(--ridge) !important;
     font-family: var(--fm) !important; font-size: 11px !important;
     letter-spacing: 1px !important; text-transform: uppercase !important;
     font-weight: 500 !important; border: none !important; border-radius: 6px !important;
-    padding: 13px 22px !important; cursor: pointer !important; margin-top: 6px;
+    padding: 13px 24px !important; cursor: pointer !important; margin-top: 6px !important;
+    box-shadow: none !important; opacity: 1 !important; text-shadow: none !important;
+    width: auto !important;
   }
-  .ridgeline-apply-form :global(.hs-button:hover) { opacity: 0.9; }
-  .ridgeline-apply-form :global(.hs-error-msgs label) { color: #C77 !important; font-family: var(--fb) !important; text-transform: none; letter-spacing: 0; font-size: 12px; }
-  .ridgeline-apply-form :global(.hs-form-required) { color: var(--tide); }
+  .ridgeline-apply-form :global(.hs-button:hover),
+  .ridgeline-apply-form :global(.actions input:hover) { opacity: 0.9 !important; }
+  .ridgeline-apply-form :global(.actions) { text-align: left !important; margin-top: 4px; }
+
+  /* multi-step progress bar — tint to brand */
+  .ridgeline-apply-form :global(.hs-progress-bar),
+  .ridgeline-apply-form :global([class*="progress"] > div) { background: var(--tide) !important; }
+
+  /* errors + required marker */
+  .ridgeline-apply-form :global(.hs-error-msgs label) { color: #B5524A !important; font-family: var(--fb) !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 12px !important; font-weight: 400 !important; }
+  .ridgeline-apply-form :global(.hs-form-required) { color: var(--tide) !important; }
 
   @media (max-width: 768px) {
     .apply-grid { grid-template-columns: 1fr; }
