@@ -1,7 +1,6 @@
-<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ridgeline AIOS">
+<svg width="120" height="60" viewBox="0 0 248 124" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ridgeline AIOS mark">
   <title>Ridgeline AIOS</title>
-  <rect width="256" height="256" rx="48" fill="#1A1D21"/>
-  <g transform="translate(20 92) scale(0.871)"><path d="M0 50 Q28 33,56 39 Q84 45,110 30 Q135 18,162 24 Q186 30,212 22 Q230 16,248 22 L248 96 L0 96 Z" fill="#8B9E82" opacity="0.30"/>
+  <g transform="translate(0 14)"><path d="M0 50 Q28 33,56 39 Q84 45,110 30 Q135 18,162 24 Q186 30,212 22 Q230 16,248 22 L248 96 L0 96 Z" fill="#8B9E82" opacity="0.30"/>
   <path d="M0 70 Q34 52,62 57 Q90 62,114 48 Q138 35,168 42 Q192 47,216 40 Q234 33,248 44 L248 96 L0 96 Z" fill="#4A7268" opacity="0.55"/>
   <path d="M0 84 Q34 82,62 82 Q90 82,114 81 Q138 81,168 82 Q192 82,216 82 Q234 82,248 83 L248 96 L0 96 Z" fill="#4E7181" opacity="0.50"/>
   <path d="M0 84 Q34 82,62 82 Q90 82,114 81 Q138 81,168 82 Q192 82,216 82 Q234 82,248 83" fill="none" stroke="#ECEAE4" stroke-width="0.7" opacity="0.35" stroke-linecap="round"/>
