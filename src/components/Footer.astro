@@ -32,13 +32,18 @@ const footerLinks = [
     <nav class="footer-nav" aria-label="Headlands">
       <span class="footer-col-label">The Practice</span>
       <a href="https://headlandsops.com" target="_blank" rel="noopener" class="footer-link">Headlands Ops ↗</a>
-      <a href="https://headlandsops.com/blog" target="_blank" rel="noopener" class="footer-link">The Vantage Point ↗</a>
+      <a href="https://headlandsops.com/vantage-point" target="_blank" rel="noopener" class="footer-link">The Vantage Point ↗</a>
     </nav>
   </div>
 
   <div class="container footer-baseline">
     <span class="mono-meta">© {year} Headlands Ops, LLC · A Product of Headlands Ops</span>
-    <span class="mono-meta footer-built">Marin County, California · Built on Claude</span>
+    <div class="footer-legal">
+      <a href="https://headlandsops.com/legal" target="_blank" rel="noopener" class="footer-legal-link">Terms</a>
+      <a href="https://headlandsops.com/legal" target="_blank" rel="noopener" class="footer-legal-link">Privacy</a>
+      <a href="https://headlandsops.com/legal" target="_blank" rel="noopener" class="footer-legal-link">Cookies</a>
+      <span class="mono-meta footer-built">Marin County, CA · Built on Claude</span>
+    </div>
   </div>
 </footer>
 
@@ -51,6 +56,9 @@ const footerLinks = [
     padding-bottom: 40px;
   }
   .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .footer-legal { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .footer-legal-link { font-family: var(--fm); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--slate); text-decoration: none; transition: color 0.15s; }
+  .footer-legal-link:hover { color: var(--driftwood); }
   .footer-wordmark { font-family: var(--fd); font-size: 19px; color: var(--fog); }
   .fw-a { font-weight: 400; letter-spacing: 3px; margin-left: 6px; }
   .footer-tagline { font-size: 14px; color: var(--slate); line-height: 1.6; max-width: 320px; }

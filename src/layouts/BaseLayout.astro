@@ -1,12 +1,11 @@
 ---
 /*
-  BaseLayout — the single wrapper every page uses.
-  - Imports self-hosted fonts via @fontsource (NEVER Google CDN — per CLAUDE.md).
-  - Pulls in global tokens/CSS.
-  - Renders sitewide Header + Footer around the page <slot/>.
+  BaseLayout (launch version) — adds full SEO/social metadata, canonical URLs,
+  HubSpot tracking, and a Fathom analytics slot. Replaces the Phase-1 BaseLayout.
+
+  Self-hosted fonts via @fontsource (NEVER Google CDN — per CLAUDE.md).
 */
 
-// Self-hosted fonts (install: @fontsource/cormorant-garamond @fontsource/instrument-sans @fontsource/jetbrains-mono)
 import "@fontsource/cormorant-garamond/400.css";
 import "@fontsource/cormorant-garamond/500.css";
 import "@fontsource/cormorant-garamond/400-italic.css";
@@ -23,7 +22,13 @@ import Footer from "../components/Footer.astro";
 const {
   title = "Ridgeline AIOS — An AI Operating System for Your Company",
   description = "Ridgeline installs an AI operating system across your entire company — governed, owned by you, built on Claude. A program of Headlands Ops.",
+  ogImage = "/og-default.png",
 } = Astro.props;
+
+const SITE = "https://ridgelineaios.com";
+// Canonical URL for the current page (works in static build).
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const ogImageAbs = new URL(ogImage, SITE).href;
 ---
 
 <!DOCTYPE html>
@@ -31,12 +36,36 @@ const {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>{title}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ridgeline AIOS" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImageAbs} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageAbs} />
+
+  <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <!-- HubSpot tracking — portal 245879662 (na2), same as Headlands -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/245879662.js"></script>
+
+  <!-- Fathom Analytics (privacy-first, no cookie banner). Shared site with
+       Headlands — filter by domain (ridgelineaios.com) in the Fathom dashboard. -->
+  <script src="https://cdn.usefathom.com/script.js" data-site="RMXYCPXP" defer></script>
 </head>
 <body>
   <Header />

@@ -1,0 +1,18 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#1A1D21"/>
+  <!-- subtle terrain band bottom -->
+  <g opacity="0.05" transform="translate(0 470)">
+    <path d="M0 90 Q160 60,320 70 Q480 80,620 52 Q760 26,920 40 Q1080 54,1200 36 L1200 160 L0 160 Z" fill="#8B9E82"/>
+    <path d="M0 115 Q200 86,360 96 Q520 106,660 80 Q800 56,980 70 Q1140 84,1200 70 L1200 160 L0 160 Z" fill="#4A7268"/>
+  </g>
+  <!-- mark, centered, scaled -->
+  <g transform="translate(476 150) scale(1.0)"><path d="M0 50 Q28 33,56 39 Q84 45,110 30 Q135 18,162 24 Q186 30,212 22 Q230 16,248 22 L248 96 L0 96 Z" fill="#8B9E82" opacity="0.30"/>
+  <path d="M0 70 Q34 52,62 57 Q90 62,114 48 Q138 35,168 42 Q192 47,216 40 Q234 33,248 44 L248 96 L0 96 Z" fill="#4A7268" opacity="0.55"/>
+  <path d="M0 84 Q34 82,62 82 Q90 82,114 81 Q138 81,168 82 Q192 82,216 82 Q234 82,248 83 L248 96 L0 96 Z" fill="#4E7181" opacity="0.50"/>
+  <path d="M0 84 Q34 82,62 82 Q90 82,114 81 Q138 81,168 82 Q192 82,216 82 Q234 82,248 83" fill="none" stroke="#ECEAE4" stroke-width="0.9" opacity="0.35" stroke-linecap="round"/>
+  <circle cx="138" cy="16" r="4.5" fill="#C19A5C" opacity="0.95"/></g>
+  <!-- wordmark -->
+  <text x="600" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="62" fill="#ECEAE4"><tspan font-weight="500">Ridgeline</tspan><tspan font-weight="400" dx="18" letter-spacing="10">AIOS</tspan></text>
+  <!-- tagline -->
+  <text x="600" y="430" text-anchor="middle" font-family="monospace" font-size="17" letter-spacing="3" fill="#4E7181">AN AI OPERATING SYSTEM · BUILT ON CLAUDE</text>
+</svg>
