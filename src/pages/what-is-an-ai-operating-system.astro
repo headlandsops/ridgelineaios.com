@@ -1,0 +1,168 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const layers = [
+  { h: "Foundation", b: "AI deployed across the organization, connected to your real systems, with meeting capture so the company's knowledge is recorded and queryable." },
+  { h: "Departmental Architecture", b: "Each function gets a purpose-built structure around its real work — not a generic template." },
+  { h: "Training & Education", b: "Continuous enablement so the capability lives in your people, not one power user. Infrastructure, not an event." },
+  { h: "Governance", b: "Acceptable use, data classification, access controls — safe and trusted from day one." },
+  { h: "Strategic Oversight", b: "Ongoing review of your AI posture — what's working, what to build next, where the next advantage is." },
+];
+
+const claudePoints = [
+  { h: "Built for organizations", b: "Long context and precise instruction-following — made for company-wide deployment, not just chat." },
+  { h: "Constitutional AI", b: "Designed to be honest and flag uncertainty rather than fabricate — which matters when a company runs on it." },
+  { h: "Enterprise data privacy", b: "The controls a real business needs to put its actual operations on the platform." },
+  { h: "A coherent foundation", b: "One platform makes the whole architecture governable. The multi-vendor patchwork is what we're replacing." },
+];
+
+const faqs = [
+  { q: "What about ChatGPT? My team already uses it.", a: "Good — that's appetite. But individual chatbot use is exactly the \u201ctools\u201d problem. The question isn't which chatbot; it's whether your company has a system. We integrate what's working, retire what isn't, and build the architecture around it." },
+  { q: "Isn't Copilot or Gemini the same thing?", a: "Those are productivity layers inside Microsoft 365 or Google Workspace — useful if you live in those suites. A feature in your email, not an operating system across your company. Different job." },
+  { q: "Won't this be outdated when the models change?", a: "The opposite. The architecture is the durable part. As the underlying models improve, your operating system improves with them. You built the system; the upgrades accrue to you." },
+];
+---
+
+<BaseLayout
+  title="What Is an AI Operating System? — Ridgeline AIOS"
+  description="Most companies have AI tools. Almost none have an AI operating system. Here's what it means, why tools never add up to one, and why the platform matters."
+>
+  <!-- 1. HERO -->
+  <section class="bg-ridge">
+    <div class="container section-pad" style="padding-top:80px;">
+      <p class="eyebrow">The Category</p>
+      <h1 class="h1">Most companies have AI tools.<br/><span class="italic" style="color:var(--sage);">Almost none have an AI operating system.</span></h1>
+      <p class="lead" style="margin-top:18px;">There's a real difference between a few people using a few tools and a company that actually runs on AI. This is what an AI operating system is — and why it's the thing that's been missing.</p>
+    </div>
+  </section>
+
+  <!-- 2. WHAT IT ACTUALLY IS -->
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <p class="eyebrow">The Honest Starting Point</p>
+      <h2 class="h2" style="max-width:720px;">Everyone knows they need AI.<br/>Almost no one has been shown how to actually install it.</h2>
+      <p class="body" style="margin-top:14px;">Here's what surprised us. We expected the gap in traditional industries. What we didn't expect was to watch leaders at some of the most advanced tech companies in San Francisco get on stage and admit they're struggling to get their own teams to train on AI and adopt it into daily work. If the companies <em style="color:#B8C0C4; font-style:normal;">building</em> this can't get adoption to stick, the problem was never a lack of awareness.</p>
+      <p class="body" style="margin-top:12px;">\u201cGo learn AI\u201d was never going to be enough. Awareness isn't adoption. A handful of power users isn't a company. And a drawer of disconnected tools isn't a system.</p>
+
+      <blockquote class="pull-quote gold">
+        An AI operating system is artificial intelligence — well-architected, installed across the organization, governed, and actually adopted. Not a tool you buy. A way the company runs.
+      </blockquote>
+
+      <p class="body">It takes three things brought together deliberately: <span style="color:var(--fog);">infrastructure</span> (the foundation everything runs on), <span style="color:var(--fog);">strategic setup</span> (architecture built around how your company actually works), and <span style="color:var(--fog);">training</span> (so the capability lives in your people). Any one alone fails. Together, they're an operating system.</p>
+      <p class="body" style="margin-top:12px; color:#B8C0C4;">As founders and operators, this is our responsibility to install — not to delegate with a memo telling everyone to use ChatGPT more.</p>
+    </div>
+  </section>
+
+  <!-- 3. RENOVATION METAPHOR -->
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">Why Tools Alone Fail</p>
+      <h2 class="h2">A drawer full of tools is not a renovation.</h2>
+      <p class="body">A chatbot in one corner, a notetaker in another, an email assistant somewhere, a few people who've gotten good at prompting. It feels like progress — but it's owning one power tool for every job in a renovation with no blueprint, no contractor, and no one making sure the pieces connect.</p>
+      <p class="body" style="margin-top:12px;">The tools don't share context. They don't compound into institutional knowledge. Within six months, most are quietly abandoned. The problem was never the tools — it's that nothing turns them into a system.</p>
+      <p class="body" style="margin-top:14px; color:#B8C0C4;">An AI operating system is the blueprint. <span class="italic" style="font-size:20px; color:var(--fog);">And the contractor.</span></p>
+    </div>
+  </section>
+
+  <!-- 4. FIVE LAYERS -->
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <p class="eyebrow">The Anatomy</p>
+      <h2 class="h2">Five layers, working as one.</h2>
+      <div class="layers" style="margin-top:20px;">
+        {layers.map((l) => (
+          <div class="layer"><div class="layer-h">{l.h}</div><p class="body" style="font-size:14px;">{l.b}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WHAT IT ISN'T -->
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">What It Isn't</p>
+      <h2 class="h2">It's none of the things being sold to you.</h2>
+      <div class="isnt-grid">
+        <div class="isnt"><p class="mono-meta">Not Point Tools</p><p class="body" style="font-size:13px; margin-top:6px;">A subscription you bolt on. Solves one task, ignores the rest, never connects.</p></div>
+        <div class="isnt"><p class="mono-meta">Not Training</p><p class="body" style="font-size:13px; margin-top:6px;">A workshop on prompts. Useful, but it leaves the next day with the people who attended.</p></div>
+        <div class="isnt"><p class="mono-meta">Not Enterprise Consulting</p><p class="body" style="font-size:13px; margin-top:6px;">A six-figure Deloitte engagement built and priced for a company ten times your size.</p></div>
+        <div class="isnt isnt-accent"><p class="mono-meta" style="color:var(--tide);">An Operating System</p><p class="body" style="font-size:13px; margin-top:6px; color:#B8C0C4;">Installed, governed, departmental, owned by you. The whole — not a piece.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. WHY CLAUDE -->
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <p class="eyebrow">The Platform</p>
+      <h2 class="h2">Built on Claude.<br/><span class="italic" style="color:var(--sage);">One platform — not a stack of tools.</span></h2>
+      <p class="body" style="margin-top:14px;">An operating system isn't a suite of point solutions glued together — it's one platform capable of doing the large majority of the work across your organization. In practice, that's <span style="color:var(--fog);">80 to 90% of what most teams need</span>, on a single coherent foundation. Which makes the choice of platform the most important architectural decision in the whole system.</p>
+
+      <blockquote class="pull-quote tide">
+        You don't build core infrastructure on the promising up-and-comer. You build it on the market leader.
+      </blockquote>
+
+      <p class="body">For organizational work — strategy, reasoning, content, the product roadmap that signals where things are headed — Claude is, to us, far and away the leader. Could an operating system be built on another platform? Honestly, yes. But when we had to choose the single best foundation to build our clients' companies on, we chose Claude. Deliberately.</p>
+
+      <div class="claude-grid">
+        {claudePoints.map((c) => (
+          <div class="claude-pt"><div class="comp-h" style="font-size:17px;">{c.h}</div><p class="body" style="font-size:13px; margin-top:4px;">{c.b}</p></div>
+        ))}
+      </div>
+      <!-- HOLD: Anthropic Partner Network line drops in here once certified. -->
+    </div>
+  </section>
+
+  <!-- 7. FAQ -->
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">The Obvious Questions</p>
+      <h2 class="h2">\u201cBut what about\u2026\u201d</h2>
+      <div class="faqs">
+        {faqs.map((f) => (
+          <div class="faq"><div class="comp-h" style="font-size:18px;">{f.q}</div><p class="body" style="font-size:14px; margin-top:6px;">{f.a}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CTA -->
+  <section class="bg-tide" style="border-bottom:none;">
+    <div class="container section-pad" style="text-align:center;">
+      <h2 class="h2" style="color:#fff;">Ready to see what this looks like<br/>for your organization?</h2>
+      <div class="cta-row2" style="margin-top:26px;">
+        <a href="/apply" class="btn">Apply for the Program →</a>
+        <a href="/program" class="btn-ghost" style="border-color:#cdd6da; color:#fff;">See the full program →</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .pull-quote { border-left: 3px solid var(--gold); padding-left: 22px; margin: 22px 0; max-width: 640px; font-family: var(--fd); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--fog); }
+  .pull-quote.tide { border-left-color: var(--tide); font-size: 21px; }
+
+  .layers { display: flex; flex-direction: column; }
+  .layer { display: grid; grid-template-columns: 180px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid #2a2f37; align-items: baseline; }
+  .layer:last-child { border-bottom: 1px solid #2a2f37; }
+  .layer-h { font-family: var(--fd); font-size: 18px; color: var(--fog); }
+
+  .isnt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
+  .isnt { background: #16181c; border: 1px solid var(--line); border-radius: 9px; padding: 18px; }
+  .isnt-accent { border-color: var(--tide); }
+
+  .claude-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; max-width: 720px; }
+  .claude-pt { border-top: 1px solid #2a2f37; padding-top: 12px; }
+  .comp-h { font-family: var(--fd); font-weight: 500; color: var(--fog); }
+
+  .faqs { max-width: 720px; }
+  .faq { padding: 18px 0; border-top: 1px solid #2a2f37; }
+  .faq:last-child { border-bottom: 1px solid #2a2f37; }
+
+  .cta-row2 { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  @media (max-width: 768px) {
+    .layer { grid-template-columns: 1fr; gap: 4px; }
+    .isnt-grid, .claude-grid { grid-template-columns: 1fr; }
+  }
+</style>

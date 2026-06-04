@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const steps = [
+  { n: "1", b: "We review every application personally — usually within two business days.", gold: true },
+  { n: "2", b: "If it looks like a fit, we schedule a diagnostic call — a real conversation about your company, not a sales pitch." },
+  { n: "3", b: "If it's right for both of us, we scope the engagement together." },
+];
+---
+
+<BaseLayout
+  title="Apply — Ridgeline AIOS"
+  description="Ridgeline is application-gated and runs at limited capacity. Start with a conversation about whether we're the right fit for each other."
+>
+  <section class="bg-ridge apply-wrap" style="border-bottom:none;">
+    <div class="apply-grid">
+      <!-- LEFT — framing -->
+      <div class="apply-left">
+        <p class="eyebrow">Apply</p>
+        <h1 class="h1" style="font-size:clamp(30px,4vw,38px);">Start with a<br/><span class="italic" style="color:var(--sage);">conversation.</span></h1>
+        <p class="body" style="margin-top:14px;">Ridgeline is application-gated and runs at limited capacity. This isn't a checkout — it's the start of a conversation about whether we're the right fit for each other.</p>
+
+        <div class="steps-label mono-meta">What happens next</div>
+        <div class="steps">
+          {steps.map((s) => (
+            <div class="step">
+              <span class="step-num" style={`color:${s.gold ? "var(--gold)" : "var(--tide)"};`}>{s.n}</span>
+              <p class="body" style="font-size:13.5px; margin:0;">{s.b}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="offramp">
+          <p class="body" style="font-size:13px; font-style:italic; color:var(--slate);">Not ready for the full program? Mention it below — there's a founder-level entry point for getting capable before an org-wide build.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT — HubSpot form -->
+      <div class="apply-right">
+        <div class="ridgeline-apply-form">
+          <!-- HubSpot embedded form — Ridgeline application.
+               Portal 245879662 · region na2 · form 114a99f4-3c5c-4bb5-b2d4-b76aa254943f
+               Form FIELDS (revenue range, team size, AI stage, what-to-solve,
+               source, founder-entry interest) and pipeline ROUTING are configured
+               in HubSpot, not here. Routes to the dedicated Ridgeline pipeline,
+               separate from Headlands Ops. -->
+          <div class="hs-form-frame" data-region="na2" data-form-id="114a99f4-3c5c-4bb5-b2d4-b76aa254943f" data-portal-id="245879662"></div>
+        </div>
+        <p class="mono-meta" style="margin-top:14px; color:var(--slate);">We review every application personally.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HubSpot embed script -->
+  <script src="https://js-na2.hsforms.net/forms/embed/245879662.js" defer></script>
+</BaseLayout>
+
+<style>
+  .apply-wrap { padding: 0; }
+  .apply-grid { display: grid; grid-template-columns: 360px 1fr; max-width: var(--container); margin: 0 auto; }
+  .apply-left { padding: 60px 40px 60px var(--container-pad); border-right: 1px solid var(--line); }
+  .apply-right { padding: 56px 48px; background: #16181c; }
+
+  .steps-label { margin: 26px 0 14px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step { display: flex; gap: 12px; }
+  .step-num { font-family: var(--fd); font-size: 18px; }
+  .offramp { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  /* ---- HubSpot form — dark-register overrides ----
+     HubSpot injects its own markup + stylesheet. We override by targeting its
+     class names, scoped under .ridgeline-apply-form. Some rules need !important
+     to beat HubSpot's defaults (notably the submit button + select dropdowns). */
+  .ridgeline-apply-form :global(.hs-form-field) { margin-bottom: 18px; }
+  .ridgeline-apply-form :global(.hs-form-field > label) {
+    font-family: var(--fm); font-size: 10px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--sage);
+    margin-bottom: 7px; display: block;
+  }
+  .ridgeline-apply-form :global(.hs-input) {
+    width: 100% !important; background: var(--ridge) !important;
+    border: 1px solid var(--line-2) !important; border-radius: 7px !important;
+    padding: 11px 13px !important; color: var(--fog) !important;
+    font-family: var(--fb) !important; font-size: 14px !important;
+  }
+  .ridgeline-apply-form :global(.hs-input:focus) { border-color: var(--tide) !important; outline: none !important; }
+  .ridgeline-apply-form :global(.hs-input::placeholder) { color: var(--slate) !important; }
+  .ridgeline-apply-form :global(textarea.hs-input) { min-height: 90px; }
+  .ridgeline-apply-form :global(.hs-button) {
+    background: var(--gold) !important; color: var(--ridge) !important;
+    font-family: var(--fm) !important; font-size: 11px !important;
+    letter-spacing: 1px !important; text-transform: uppercase !important;
+    font-weight: 500 !important; border: none !important; border-radius: 6px !important;
+    padding: 13px 22px !important; cursor: pointer !important; margin-top: 6px;
+  }
+  .ridgeline-apply-form :global(.hs-button:hover) { opacity: 0.9; }
+  .ridgeline-apply-form :global(.hs-error-msgs label) { color: #C77 !important; font-family: var(--fb) !important; text-transform: none; letter-spacing: 0; font-size: 12px; }
+  .ridgeline-apply-form :global(.hs-form-required) { color: var(--tide); }
+
+  @media (max-width: 768px) {
+    .apply-grid { grid-template-columns: 1fr; }
+    .apply-left { border-right: none; border-bottom: 1px solid var(--line); padding: 48px 24px; }
+    .apply-right { padding: 40px 24px; }
+  }
+</style>

@@ -1,0 +1,182 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const componentsList = [
+  { n: "01", h: "Organizational OS Foundation", sub: "The layer everything runs on", b: "Claude deployed across your organization and connected to your core systems. Meeting capture so every conversation is recorded and queryable. A governance framework — acceptable-use policy, data classification, access controls — in place from day one." },
+  { n: "02", h: "Departmental Builds", sub: "One department at a time · your order", b: "Each function gets a custom Claude project architecture built around its real work — not a template. You set the sequence; we build in order, one department per month." },
+  { n: "03", h: "Training as Infrastructure", sub: "Ongoing throughout", b: "Company-wide enablement at launch, monthly rotating training, office hours, and open AMAs. Treated as infrastructure, not a one-time event — which is why adoption sticks." },
+  { n: "04", h: "Strategic Advisory", sub: "Monthly leadership · 2× deep review", b: "Private monthly advisory for the founder and leadership, plus twice-yearly senior reviews of your AI posture — automation opportunities, integration gaps, what to build next." },
+  { n: "05", h: "Impact Reporting", sub: "Twice a year", b: "Adoption, time saved, and cost displaced — quantified by department. The closing report becomes the foundation for your next year." },
+];
+
+const cycle = [
+  { w: "Week 1", h: "Discovery", b: "We map the department's real use cases, processes, and materials with its lead." },
+  { w: "Week 2", h: "Architecture", b: "We design the project structure, build the Claude architecture, draft the instructions." },
+  { w: "Week 3", h: "Guided Setup", b: "Your team completes setup with our oversight — testing and refining together." },
+  { w: "Week 4", h: "Training & Handoff", b: "Department training, instruction guide delivered, the team owns it." },
+];
+
+const depts = [
+  { h: "Sales", b: "Outreach, follow-up, proposals, pipeline." },
+  { h: "Marketing", b: "Content, campaigns, brand voice, reporting." },
+  { h: "People & HR", b: "Hiring, onboarding, performance, policy." },
+  { h: "Finance", b: "Reporting, forecasting, budget, audit prep." },
+  { h: "Operations", b: "Process docs, vendor management, projects." },
+  { h: "Leadership & Strategy", b: "The organizational \u201csecond brain.\u201d" },
+];
+
+const owns = [
+  { h: "Configured Claude projects", b: "the working AI architecture, live in your organization." },
+  { h: "Department instruction guides", b: "a written guide for every build." },
+  { h: "AI governance framework", b: "acceptable use, data classification, evaluation process." },
+  { h: "Impact reports & engagement calendar", b: "your roadmap and your proof." },
+];
+---
+
+<BaseLayout
+  title="The Program — Ridgeline AIOS"
+  description="Ridgeline AIOS installs Claude-based AI infrastructure across your organization — built with your team, owned by your company. Here is exactly what that means."
+>
+  <!-- 1. HERO -->
+  <section class="bg-ridge">
+    <div class="container section-pad" style="padding-top:80px;">
+      <p class="eyebrow">The Program</p>
+      <h1 class="h1">Department by department.<br/>Month by month.<br/><span class="italic" style="color:var(--sage);">One operating system.</span></h1>
+      <p class="lead" style="margin-top:18px;">Ridgeline AIOS is an annual engagement that installs Claude-based AI infrastructure across your entire organization — built with your team, owned by your company. Here is exactly what that means.</p>
+      <div style="margin-top:28px;"><a href="/apply" class="btn">Apply for the Program →</a></div>
+    </div>
+  </section>
+
+  <!-- 2. FIVE COMPONENTS -->
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <p class="eyebrow">What Gets Installed</p>
+      <h2 class="h2">Five components. One system.</h2>
+      <div class="components" style="margin-top:20px;">
+        {componentsList.map((c) => (
+          <div class="component">
+            <span class="comp-num">{c.n}</span>
+            <div><div class="comp-h">{c.h}</div><div class="mono-meta" style="margin-top:4px;">{c.sub}</div></div>
+            <p class="body" style="font-size:14px;">{c.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. BUILD CYCLE -->
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">How a Department Comes Online</p>
+      <h2 class="h2">Every build follows the same four-week rhythm.</h2>
+      <p class="body" style="max-width:600px;">No mystery, no open-ended consulting. Each department is installed on a predictable cycle so your team always knows what's happening and what's next.</p>
+      <div class="cycle">
+        {cycle.map((c, i) => (
+          <div class="cycle-cell">
+            <div class="mono-meta" style={`color:${i === 0 ? "var(--gold)" : "var(--tide)"};`}>{c.w}</div>
+            <div class="cycle-h">{c.h}</div>
+            <p class="body" style="font-size:12.5px;">{c.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DONE WITH YOU -->
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <div class="two-col">
+        <div>
+          <p class="eyebrow">The Model</p>
+          <h2 class="h2">Done with you.<br/><span class="italic" style="color:var(--sage);">Not done to you.</span></h2>
+        </div>
+        <div>
+          <p class="body" style="font-size:15px;">Done-for-you builds dependency — when the engagement ends, the capability leaves with the consultant. Done-with-you builds the organization. We lead discovery, architecture, and guided setup; your team does the work with our coaching and oversight.</p>
+          <p class="body" style="font-size:15px; margin-top:12px; color:#B8C0C4;">By the end, AI isn't a vendor you depend on. It's a capability you own. <span style="color:var(--fog);">We install it, then step back.</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. DEPARTMENTS -->
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">The Builds</p>
+      <h2 class="h2">Every function. You set the order.</h2>
+      <div class="dept-grid">
+        {depts.map((d) => (
+          <div class="dept"><div class="comp-h" style="font-size:16px;">{d.h}</div><p class="body" style="font-size:12px; margin-top:4px;">{d.b}</p></div>
+        ))}
+      </div>
+      <p class="body" style="margin-top:16px; font-style:italic;">Larger or more complex departments may take two months — we flag it at the start of discovery, and it simply shifts the queue. No surprise fees.</p>
+    </div>
+  </section>
+
+  <!-- 6. WHAT YOU OWN -->
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <p class="eyebrow">Yours to Keep</p>
+      <h2 class="h2">You own what we build.</h2>
+      <div class="own-list">
+        {owns.map((o) => (
+          <div class="own-row"><span style="color:var(--tide);">→</span><div><span style="color:var(--fog);">{o.h}</span> <span class="body" style="font-size:13px;">— {o.b}</span></div></div>
+        ))}
+      </div>
+      <p class="body" style="margin-top:16px;">You receive the outputs of our methodology, built into your business. Built on Claude, under your own licenses — so it's genuinely yours.</p>
+    </div>
+  </section>
+
+  <!-- 7. FIT -->
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">The Fit</p>
+      <h2 class="h2">Built for the company ready to commit.</h2>
+      <div class="fit2">
+        <div class="card"><p class="mono-meta" style="color:var(--sage);">This is you if</p><p class="body" style="font-size:13.5px; margin-top:8px;">You're founder-led, $5M–$100M, and ready to install AI organization-wide. You'll name an executive point person and commit a year. You want capability, not another pilot.</p></div>
+        <div class="card"><p class="mono-meta" style="color:var(--gold);">This isn't you if</p><p class="body" style="font-size:13.5px; margin-top:8px;">You want AI installed without your team's involvement, you're looking for a one-off workshop, or you're committed to a non-Claude platform. The coherence is the point.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. CLOSE -->
+  <section class="bg-tide" style="border-bottom:none;">
+    <div class="container section-pad" style="text-align:center;">
+      <h2 class="h2" style="color:#fff;">Start with a conversation.</h2>
+      <p class="lead" style="color:#dde4e7; margin:14px auto 0; max-width:600px;">Every engagement begins with an application and a diagnostic call — not a sales pitch. We take a limited number of companies at a time.</p>
+      <div style="margin-top:26px;"><a href="/apply" class="btn">Apply for the Program →</a></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<!--
+  OPEN COPY DECISION (left for Andrew, do not resolve in build):
+  The 12-month term is currently implied ("annual engagement", "one department
+  per month") rather than stated as a hard "12 months". Leave as-is unless told.
+-->
+
+<style>
+  .components { display: flex; flex-direction: column; }
+  .component { display: grid; grid-template-columns: 42px 230px 1fr; gap: 18px; padding: 20px 0; border-top: 1px solid #2a2f37; align-items: start; }
+  .component:last-child { border-bottom: 1px solid #2a2f37; }
+  .comp-num { font-family: var(--fd); font-size: 20px; color: var(--gold); }
+  .comp-h { font-family: var(--fd); font-size: 19px; color: var(--fog); font-weight: 500; }
+
+  .cycle { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line-2); border-radius: var(--radius-lg); overflow: hidden; margin-top: 22px; }
+  .cycle-cell { background: var(--basalt); padding: 18px 16px; }
+  .cycle-h { font-family: var(--fd); font-size: 17px; margin: 6px 0; color: var(--fog); }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+  .dept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+  .dept { background: #16181c; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+
+  .own-list { max-width: 680px; margin-top: 14px; }
+  .own-row { display: flex; gap: 10px; align-items: baseline; padding: 11px 0; border-top: 1px solid #2a2f37; }
+  .fit2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px; }
+
+  @media (max-width: 768px) {
+    .component { grid-template-columns: 36px 1fr; }
+    .component p { grid-column: 1 / -1; }
+    .cycle { grid-template-columns: 1fr 1fr; }
+    .two-col, .dept-grid, .fit2 { grid-template-columns: 1fr; }
+  }
+</style>

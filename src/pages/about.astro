@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const stats = [
+  { num: "18", lbl: "Years operating founder-led companies" },
+  { num: "Built", lbl: "Internally first, then productized", serif: true },
+  { num: "Claude", lbl: "The platform the system runs on", serif: true },
+];
+
+const provenance = [
+  { h: "Built Internally First", b: "The Ridgeline system was architected and proven inside Headlands Ops and its companies before it became a program." },
+  { h: "In the Field Now", b: "Deploying with founder-led companies — building the documented track record that pre-proof claims can't." },
+  { h: "Built on Claude", b: "The system runs on the platform built for organizational deployment, by deliberate architectural choice." },
+];
+---
+
+<BaseLayout
+  title="About — Ridgeline AIOS"
+  description="Ridgeline AIOS is the AI operating system built by Headlands Ops — an operational advisory practice that has spent its career inside founder-led companies."
+>
+  <!-- 1. HERO -->
+  <section class="bg-ridge">
+    <div class="container section-pad" style="padding-top:80px;">
+      <p class="eyebrow">About Ridgeline</p>
+      <h1 class="h1">Built by an operational advisory practice.<br/><span class="italic" style="color:var(--sage);">Not a software startup.</span></h1>
+      <p class="lead" style="margin-top:18px;">Ridgeline AIOS is the AI operating system built by Headlands Ops — an advisory practice that has spent its career inside founder-led companies, installing the systems that let them scale. Ridgeline is that work, applied to AI.</p>
+    </div>
+  </section>
+
+  <!-- 2. THE FIRM -->
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <p class="eyebrow">The Practice</p>
+      <h2 class="h2" style="max-width:680px;">Headlands Ops builds the operational architecture founder-led companies need to scale.</h2>
+      <p class="body" style="margin-top:14px;">Headlands Ops is an operational advisory practice for founder-led businesses navigating the climb from hustle to real scale. The work has always been the same at its core: take what lives in the founder's head and the team's habits, and turn it into systems the company actually runs on — vision, leadership rhythm, departmental infrastructure.</p>
+      <p class="body" style="margin-top:12px;">Ridgeline AIOS is the newest and most advanced of that work: the AI operating system. When the question became <span class="italic" style="font-size:17px; color:#B8C0C4;">\u201chow does a founder-led company actually install AI across the organization?\u201d</span> — Headlands built the answer, deployed it, and made it repeatable.</p>
+
+      <div style="margin-top:18px;">
+        <a href="https://headlandsops.com" target="_blank" rel="noopener" class="tide-link">Visit Headlands Ops ↗</a>
+      </div>
+
+      <div class="stat-row">
+        {stats.map((s) => (
+          <div class="stat-card">
+            <div class={s.serif ? "stat-num serif" : "stat-num"}>{s.num}</div>
+            <div class="mono-meta" style="margin-top:6px;">{s.lbl}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. HOW WE WORK -->
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">How We Work</p>
+      <h2 class="h2">We install capability. Then we step back.</h2>
+      <p class="body">Our model is done-with-you, by conviction. Done-for-you builds dependency — when the engagement ends, the capability leaves. We build the system alongside your team so it becomes genuinely yours: understood, owned, and able to evolve long after we're gone. That principle runs through everything Headlands builds, and it's the spine of how Ridgeline is delivered.</p>
+    </div>
+  </section>
+
+  <!-- 4. THE FOUNDER (secondary) -->
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <p class="eyebrow">The Founder</p>
+      <h2 class="h2">The operator behind the practice.</h2>
+      <div style="max-width:680px;">
+        <p class="body" style="margin-top:8px;">Headlands Ops was founded by Andrew Erickson, who has spent eighteen years co-founding and operating founder-led companies — Alaniz Marketing, Alaniz Health, and the practice itself. He's lived every operational challenge a founder-led company faces, including the one Ridgeline solves: knowing AI matters, and having no clear way to install it across an organization.</p>
+        <p class="body" style="margin-top:12px;">He built the system inside his own companies, with real stakes, before offering it to anyone else.</p>
+        <blockquote class="pull-quote">Not a vendor reselling someone else's tools — an operator who built the thing, then made it repeatable.</blockquote>
+        <div style="margin-top:14px;"><a href="https://headlandsops.com/about" target="_blank" rel="noopener" class="tide-link">Read Andrew's full story at Headlands Ops ↗</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. PROVENANCE -->
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">Where This Comes From</p>
+      <h2 class="h2">Proven before it was offered.</h2>
+      <div class="prov-grid">
+        {provenance.map((p) => (
+          <div class="card"><p class="mono-meta" style="color:var(--sage);">{p.h}</p><p class="body" style="font-size:13px; margin-top:6px;">{p.b}</p></div>
+        ))}
+      </div>
+      <!-- HOLD: Anthropic Partner Network credential drops in here once certified. -->
+    </div>
+  </section>
+
+  <!-- 6. CTA -->
+  <section class="bg-tide" style="border-bottom:none;">
+    <div class="container section-pad" style="text-align:center;">
+      <h2 class="h2" style="color:#fff;">Let's talk about your company.</h2>
+      <p class="lead" style="color:#dde4e7; margin:14px auto 0; max-width:560px;">Every engagement starts with an application and a diagnostic conversation — not a pitch.</p>
+      <div class="cta-row2" style="margin-top:24px;">
+        <a href="/apply" class="btn">Apply for the Program →</a>
+        <a href="https://headlandsops.com" target="_blank" rel="noopener" class="btn-ghost" style="border-color:#cdd6da; color:#fff;">Visit Headlands Ops ↗</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .stat-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+  .stat-card { background: #16181c; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; flex: 1; min-width: 150px; }
+  .stat-num { font-family: var(--fd); font-size: 38px; color: var(--fog); line-height: 1; }
+  .pull-quote { border-left: 3px solid var(--gold); padding-left: 22px; margin: 20px 0; max-width: 620px; font-family: var(--fd); font-style: italic; font-size: 21px; line-height: 1.4; color: var(--fog); }
+  .prov-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+  .cta-row2 { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  @media (max-width: 768px) { .prov-grid { grid-template-columns: 1fr; } }
+</style>
