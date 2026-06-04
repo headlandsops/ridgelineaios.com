@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import TerrainBand from "../components/TerrainBand.astro";
+import TerrainBridge from "../components/TerrainBridge.astro";
 
 const components = [
   "OS Foundation & Governance",
@@ -29,8 +29,8 @@ const fit = [
   description="Ridgeline installs AI into every department of your business — governed, owned by you, built on Claude. A program of Headlands Ops."
 >
   <!-- 1. HERO -->
-  <section class="bg-ridge hero">
-    <TerrainBand opacity={0.05} position="bottom" />
+  <section class="bg-dark on-dark hero">
+    <TerrainBridge toColor="#F1EFE9" />
     <div class="container section-pad" style="position:relative; z-index:1; padding-top:88px; padding-bottom:80px;">
       <p class="eyebrow">A Headlands Ops Program</p>
       <h1 class="h1">One AI operating system,<br/>installed across your company.</h1>
@@ -43,22 +43,22 @@ const fit = [
   </section>
 
   <!-- 2. FOUNDER IN MOTION -->
-  <section class="bg-deep">
+  <section class="bg-paper">
     <div class="container section-pad">
       <p class="eyebrow">You Already Know This</p>
       <h2 class="h2" style="max-width:780px;">You know you should be doing this.<br/>You may already be good at it yourself.<br/><span class="italic" style="color:var(--sage);">So why hasn't it reached your company?</span></h2>
       <p class="body" style="margin-top:18px;">You've watched the demos. Maybe you've gotten genuinely sharp with Claude or ChatGPT on your own. You know your competitors are racing toward this — and you know, roughly, what it's worth. Faster teams. Lower costs. You're not behind because you don't understand AI.</p>
-      <p class="body" style="margin-top:12px; color:#B8C0C4;">You're stuck because no one has shown you what it actually means to <em style="color:var(--fog); font-style:normal;">install</em> it — across the whole company, not just in your own browser tabs.</p>
+      <p class="body" style="margin-top:12px;">You're stuck because no one has shown you what it actually means to <em style="color:var(--ink); font-style:normal;">install</em> it — across the whole company, not just in your own browser tabs.</p>
     </div>
   </section>
 
   <!-- 3. DIAGNOSIS -> RESOLUTION -->
-  <section class="bg-ridge">
+  <section class="bg-dune">
     <div class="container section-pad">
       <p class="eyebrow">The Real Problem</p>
       <h2 class="h2" style="max-width:720px;">The problem was never you.<br/>It's how the whole industry talks about AI.</h2>
       <p class="body" style="margin-top:16px;">Look at who's selling AI to the small-and-mid market. Trainers who teach your team prompts. Point-solution vendors with thirty tools in a thirty-minute pitch. Enterprise firms like Deloitte who only work above your weight class. Every one of them sells a piece. None of them sells the whole.</p>
-      <p class="body" style="margin-top:12px;">So you're left with a fog: <span class="italic" style="font-size:18px; color:#B8C0C4;">I know I need AI — but what does it even mean to install it across my company?</span> Tools are part of it. Training is part of it. But a pile of parts isn't a system.</p>
+      <p class="body" style="margin-top:12px;">So you're left with a fog: <span class="italic" style="font-size:18px;">I know I need AI — but what does it even mean to install it across my company?</span> Tools are part of it. Training is part of it. But a pile of parts isn't a system.</p>
 
       <div class="shift-card">
         <p class="eyebrow" style="color:var(--gold);">The Shift</p>
@@ -68,13 +68,13 @@ const fit = [
 
       <div class="vs-grid">
         <div class="vs-cell"><p class="mono-meta">Point Tools &amp; Training</p><p class="body" style="font-size:13px; margin-top:8px;">Scattered. Don't share context. Get adopted by a few, abandoned by most. The capability lives in individuals.</p></div>
-        <div class="vs-cell vs-accent"><p class="mono-meta" style="color:var(--tide);">An AI Operating System</p><p class="body" style="font-size:13px; margin-top:8px; color:#B8C0C4;">Architected across departments. Shared context and governance. Owned by the company. The capability lives in the business.</p></div>
+        <div class="vs-cell vs-accent"><p class="mono-meta" style="color:var(--tide);">An AI Operating System</p><p class="body" style="font-size:13px; margin-top:8px;">Architected across departments. Shared context and governance. Owned by the company. The capability lives in the business.</p></div>
       </div>
     </div>
   </section>
 
   <!-- 4. BENEFITS -->
-  <section class="bg-deep">
+  <section class="bg-dark on-dark">
     <div class="container section-pad">
       <p class="eyebrow">The Upside You Haven't Counted</p>
       <h2 class="h2" style="max-width:720px;">You know it saves time and money.<br/>That's the part everyone can see.</h2>
@@ -88,7 +88,7 @@ const fit = [
   </section>
 
   <!-- 5. ENGINE TEASER -->
-  <section class="bg-ridge" id="how">
+  <section class="bg-paper" id="how">
     <div class="container section-pad">
       <div class="engine-grid">
         <div>
@@ -108,7 +108,7 @@ const fit = [
   </section>
 
   <!-- 6. WHO IT'S FOR -->
-  <section class="bg-deep">
+  <section class="bg-dune">
     <div class="container section-pad">
       <p class="eyebrow">Is This You</p>
       <h2 class="h2">Built for founders ready to install.</h2>
@@ -136,18 +136,18 @@ const fit = [
   .cta-row { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
   .nav-inline { font-size: 13px; color: var(--tide); text-decoration: none; }
 
-  .shift-card { margin-top: 26px; padding: 24px; background: #16181c; border: 1px solid var(--line); border-radius: var(--radius-lg); max-width: 760px; }
-  .shift-lead { font-family: var(--fd); font-size: 24px; line-height: 1.25; margin: 10px 0; color: var(--fog); }
+  .shift-card { margin-top: 26px; padding: 24px; background: var(--card-lt); border: 1px solid var(--line-lt); border-radius: var(--radius-lg); max-width: 760px; }
+  .shift-lead { font-family: var(--fd); font-size: 24px; line-height: 1.25; margin: 10px 0; color: var(--ink); }
 
-  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-2); border-radius: var(--radius-lg); overflow: hidden; margin-top: 22px; max-width: 820px; }
-  .vs-cell { background: var(--basalt); padding: 20px; }
+  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-lt); border-radius: var(--radius-lg); overflow: hidden; margin-top: 22px; max-width: 820px; }
+  .vs-cell { background: var(--card-lt); padding: 20px; }
   .vs-accent { border-left: 2px solid var(--tide); }
 
   .benefit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; max-width: 760px; }
   .engine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
   .engine-list { display: flex; flex-direction: column; }
-  .engine-item { font-family: var(--fd); font-size: 18px; color: #B8C0C4; padding: 11px 0; border-bottom: 1px solid var(--line); }
-  .engine-item:first-child { border-top: 1px solid var(--line); }
+  .engine-item { font-family: var(--fd); font-size: 18px; color: var(--ink-soft); padding: 11px 0; border-bottom: 1px solid var(--line-lt); }
+  .engine-item:first-child { border-top: 1px solid var(--line-lt); }
   .fit-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 22px; }
 
   @media (max-width: 768px) {

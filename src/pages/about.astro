@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import TerrainBridge from "../components/TerrainBridge.astro";
 
 const stats = [
   { num: "18", lbl: "Years operating founder-led companies" },
@@ -19,8 +20,9 @@ const provenance = [
   description="Ridgeline AIOS is the AI operating system built by Headlands Ops — an operational advisory practice that has spent its career inside founder-led companies."
 >
   <!-- 1. HERO -->
-  <section class="bg-ridge">
-    <div class="container section-pad" style="padding-top:80px;">
+  <section class="bg-dark on-dark" style="position:relative; overflow:hidden;">
+    <TerrainBridge toColor="#F1EFE9" />
+    <div class="container section-pad" style="padding-top:80px; position:relative; z-index:1;">
       <p class="eyebrow">About Ridgeline</p>
       <h1 class="h1">Built by an operational advisory practice.<br/><span class="italic" style="color:var(--sage);">Not a software startup.</span></h1>
       <p class="lead" style="margin-top:18px;">Ridgeline AIOS is the AI operating system built by Headlands Ops — an advisory practice that has spent its career inside founder-led companies, installing the systems that let them scale. Ridgeline is that work, applied to AI.</p>
@@ -28,12 +30,12 @@ const provenance = [
   </section>
 
   <!-- 2. THE FIRM -->
-  <section class="bg-deep">
+  <section class="bg-paper">
     <div class="container section-pad">
       <p class="eyebrow">The Practice</p>
       <h2 class="h2" style="max-width:680px;">Headlands Ops builds the operational architecture founder-led companies need to scale.</h2>
       <p class="body" style="margin-top:14px;">Headlands Ops is an operational advisory practice for founder-led businesses navigating the climb from hustle to real scale. The work has always been the same at its core: take what lives in the founder's head and the team's habits, and turn it into systems the company actually runs on — vision, leadership rhythm, departmental infrastructure.</p>
-      <p class="body" style="margin-top:12px;">Ridgeline AIOS is the newest and most advanced of that work: the AI operating system. When the question became <span class="italic" style="font-size:17px; color:#B8C0C4;">\u201chow does a founder-led company actually install AI across the organization?\u201d</span> — Headlands built the answer, deployed it, and made it repeatable.</p>
+      <p class="body" style="margin-top:12px;">Ridgeline AIOS is the newest and most advanced of that work: the AI operating system. When the question became <span class="italic" style="font-size:17px; ">\u201chow does a founder-led company actually install AI across the organization?\u201d</span> — Headlands built the answer, deployed it, and made it repeatable.</p>
 
       <div style="margin-top:18px;">
         <a href="https://headlandsops.com" target="_blank" rel="noopener" class="tide-link">Visit Headlands Ops ↗</a>
@@ -51,7 +53,7 @@ const provenance = [
   </section>
 
   <!-- 3. HOW WE WORK -->
-  <section class="bg-ridge">
+  <section class="bg-dune">
     <div class="container section-pad">
       <p class="eyebrow">How We Work</p>
       <h2 class="h2">We install capability. Then we step back.</h2>
@@ -60,7 +62,7 @@ const provenance = [
   </section>
 
   <!-- 4. THE FOUNDER (secondary) -->
-  <section class="bg-deep">
+  <section class="bg-dark on-dark">
     <div class="container section-pad">
       <p class="eyebrow">The Founder</p>
       <h2 class="h2">The operator behind the practice.</h2>
@@ -74,7 +76,7 @@ const provenance = [
   </section>
 
   <!-- 5. PROVENANCE -->
-  <section class="bg-ridge">
+  <section class="bg-paper">
     <div class="container section-pad">
       <p class="eyebrow">Where This Comes From</p>
       <h2 class="h2">Proven before it was offered.</h2>
@@ -102,9 +104,10 @@ const provenance = [
 
 <style>
   .stat-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
-  .stat-card { background: #16181c; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; flex: 1; min-width: 150px; }
-  .stat-num { font-family: var(--fd); font-size: 38px; color: var(--fog); line-height: 1; }
-  .pull-quote { border-left: 3px solid var(--gold); padding-left: 22px; margin: 20px 0; max-width: 620px; font-family: var(--fd); font-style: italic; font-size: 21px; line-height: 1.4; color: var(--fog); }
+  .stat-card { background: var(--card-lt); border: 1px solid var(--line-lt); border-radius: var(--radius); padding: 16px 18px; flex: 1; min-width: 150px; }
+  .stat-num { font-family: var(--fd); font-size: 38px; color: var(--ink); line-height: 1; }
+  .pull-quote { border-left: 3px solid var(--gold); padding-left: 22px; margin: 20px 0; max-width: 620px; font-family: var(--fd); font-style: italic; font-size: 21px; line-height: 1.4; color: var(--ink); }
+  .on-dark .pull-quote { color: var(--fog); }
   .prov-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
   .cta-row2 { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   @media (max-width: 768px) { .prov-grid { grid-template-columns: 1fr; } }

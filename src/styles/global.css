@@ -1,30 +1,47 @@
 /*
-  Ridgeline AIOS — Global Stylesheet
-  Layout constants, type scale, and spacing match the Headlands site exactly.
-  ONLY the color register changes (precision-dark reweight).
-  Fonts are self-hosted via @fontsource (imported in BaseLayout, never Google CDN).
+  Ridgeline AIOS — Global Stylesheet (MIDDLE VERSION / refined B)
+  Light-dominant body with softened-dark hero + accent bands.
+  Layout constants + type scale still match Headlands exactly.
+  This REPLACES the all-dark global.css.
+
+  Register logic:
+    - Page default is LIGHT (warm paper).
+    - Dark is reserved for the hero, occasional accent bands, and the footer —
+      and it's a SOFTENED dark (slate, not near-black) so transitions aren't harsh.
+    - Fonts self-hosted via @fontsource (imported in BaseLayout, never Google CDN).
 */
 
 :root {
-  /* ---- RIDGELINE COLOR TOKENS (the only thing that differs from Headlands) ---- */
-  --ridge:  #1A1D21;   /* Dominant base — page bg, hero, footer */
-  --basalt: #2A2D31;   /* Secondary dark — cards, panels */
-  --dusk:   #2D3540;   /* Tertiary dark — nav hover, interstitials */
-  --fog:    #ECEAE4;   /* Primary light text (never pure white) */
-  --slate:  #5A6068;   /* Secondary / muted text */
-  --driftwood: #9AA3A8;/* Body copy on dark (lifted for contrast) */
-  --tide:   #4E7181;   /* PRIMARY accent — links, interactive, labels */
-  --deep-tide: #3A5963;/* Ocean on light, deep accent */
-  --sage:   #8B9E82;   /* Secondary system color, terrain, on-dark labels */
-  --green:  #4A7268;   /* Logo terrain only (not an interactive color here) */
-  --gold:   #C19A5C;   /* Highest-emphasis only — primary CTA, key stat */
-  --line:   #252830;   /* Hairline borders / section dividers on dark */
-  --line-2: #313640;   /* Card borders, form field borders */
+  /* ---- LIGHT SURFACES (the body register) ---- */
+  --paper:    #F1EFE9;   /* primary page background — warm paper, not stark white */
+  --dune:     #E6E3DA;   /* alternating light section */
+  --card-lt:  #FBFAF7;   /* light card surface */
+  --line-lt:  #DDD9CF;   /* hairline borders on light */
+
+  /* ---- DARK SURFACES (hero / accent bands / footer) ---- */
+  --slate-dk: #2A3036;   /* SOFTENED dark — hero + accent bands (not near-black) */
+  --ridge:    #1A1D21;   /* deepest dark — footer, reserved heavy moments */
+  --basalt:   #2A2D31;   /* dark cards / panels on dark sections */
+  --line-dk:  #3a4046;   /* hairline borders on dark */
+
+  /* ---- TEXT ---- */
+  --ink:      #2A2D31;   /* primary text on light */
+  --ink-soft: #585e64;   /* secondary / body text on light */
+  --slate:    #5A6068;   /* muted text / mono labels */
+  --fog:      #ECEAE4;   /* primary text on dark (never pure white) */
+  --fog-soft: #C3C9CC;   /* body text on dark */
+
+  /* ---- ACCENTS (unchanged Ridgeline palette) ---- */
+  --tide:     #4E7181;   /* primary accent on light */
+  --tide-lt:  #5e8a93;   /* tide lifted for legibility on dark */
+  --sage:     #8B9E82;   /* secondary system / terrain / italic emphasis */
+  --green:    #4A7268;   /* deeper green — italic emphasis on light, terrain */
+  --gold:     #C19A5C;   /* highest-emphasis only — primary CTA, key stat */
 
   /* ---- TYPE FAMILIES (identical to Headlands) ---- */
-  --fd: 'Cormorant Garamond', Georgia, serif;   /* display */
-  --fb: 'Instrument Sans', system-ui, sans-serif;/* body / UI */
-  --fm: 'JetBrains Mono', monospace;             /* labels, stats, eyebrows */
+  --fd: 'Cormorant Garamond', Georgia, serif;
+  --fb: 'Instrument Sans', system-ui, sans-serif;
+  --fm: 'JetBrains Mono', monospace;
 
   /* ---- LAYOUT CONSTANTS (identical to Headlands) ---- */
   --container: 1040px;
@@ -37,10 +54,10 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--ridge);
-  color: var(--fog);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--fb);
-  font-size: 16px;          /* dark-mode body min per Ridgeline spec (17–18 for lead) */
+  font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -52,16 +69,26 @@ body {
   padding-left: var(--container-pad);
   padding-right: var(--container-pad);
 }
-section { border-bottom: 1px solid var(--line); }
+section { border-bottom: 1px solid var(--line-lt); }
 .section-pad { padding-top: 64px; padding-bottom: 64px; }
 
-/* Section background rhythm — never two identical dark shades in a row without a divider */
-.bg-ridge  { background: var(--ridge); }
-.bg-deep   { background: #16181c; }      /* slightly deeper than ridge for alternation */
-.bg-basalt { background: var(--basalt); }
-.bg-tide   { background: var(--tide); }
+/* ---- SECTION BACKGROUND HELPERS ----
+   Light register is the default. Dark sections opt in and carry their own
+   text-color context via .on-dark. */
+.bg-paper  { background: var(--paper); }
+.bg-dune   { background: var(--dune); }
+.bg-dark   { background: var(--slate-dk); border-bottom-color: var(--line-dk); }
+.bg-ridge  { background: var(--ridge); border-bottom-color: var(--line-dk); }
+.bg-tide   { background: var(--tide); border-bottom-color: transparent; }
 
-/* ---- TYPE SCALE (matches Headlands; colors reweighted) ---- */
+/* On dark sections, flip text colors */
+.on-dark { color: var(--fog); }
+.on-dark .eyebrow { color: var(--tide-lt); }
+.on-dark .body { color: var(--fog-soft); }
+.on-dark .lead { color: var(--fog-soft); }
+.on-dark h1, .on-dark h2, .on-dark h3 { color: var(--fog); }
+
+/* ---- TYPE SCALE (matches Headlands) ---- */
 .eyebrow {
   font-family: var(--fm);
   font-size: 11px;
@@ -70,14 +97,14 @@ section { border-bottom: 1px solid var(--line); }
   color: var(--tide);
   margin-bottom: 7px;
 }
-h1, .h1 { font-family: var(--fd); font-size: clamp(34px, 5vw, 50px); font-weight: 500; line-height: 1.08; letter-spacing: 0.5px; }
-h2, .h2 { font-family: var(--fd); font-size: clamp(26px, 3.8vw, 34px); font-weight: 500; line-height: 1.14; }
-h3, .h3 { font-family: var(--fd); font-size: 23px; font-weight: 500; line-height: 1.2; }
+h1, .h1 { font-family: var(--fd); font-size: clamp(34px, 5vw, 50px); font-weight: 500; line-height: 1.08; letter-spacing: 0.5px; color: var(--ink); }
+h2, .h2 { font-family: var(--fd); font-size: clamp(26px, 3.8vw, 34px); font-weight: 500; line-height: 1.14; color: var(--ink); }
+h3, .h3 { font-family: var(--fd); font-size: 23px; font-weight: 500; line-height: 1.2; color: var(--ink); }
 .italic { font-family: var(--fd); font-style: italic; font-weight: 400; }
 
 p { max-width: 660px; }
-.lead { font-size: 18px; line-height: 1.6; color: #B8C0C4; }
-.body { font-size: 15px; line-height: 1.75; color: var(--driftwood); }
+.lead { font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
+.body { font-size: 15px; line-height: 1.75; color: var(--ink-soft); }
 
 /* ---- BUTTONS ---- */
 .btn {
@@ -97,10 +124,12 @@ p { max-width: 660px; }
   transition: opacity 0.15s;
 }
 .btn:hover { opacity: 0.9; }
+
+/* Ghost button — adapts to light or dark context */
 .btn-ghost {
   display: inline-block;
   background: transparent;
-  color: var(--fog);
+  color: var(--ink);
   border: 1px solid var(--tide);
   font-family: var(--fm);
   font-size: 11px;
@@ -111,7 +140,9 @@ p { max-width: 660px; }
   text-decoration: none;
   transition: background 0.15s;
 }
-.btn-ghost:hover { background: rgba(78,113,129,0.12); }
+.btn-ghost:hover { background: rgba(78,113,129,0.1); }
+.on-dark .btn-ghost { color: var(--fog); }
+.on-dark .btn-ghost:hover { background: rgba(78,113,129,0.18); }
 
 /* ---- LINKS ---- */
 a { color: var(--tide); }
@@ -126,10 +157,14 @@ a { color: var(--tide); }
 
 /* ---- CARDS ---- */
 .card {
-  background: var(--basalt);
-  border: 1px solid var(--line-2);
+  background: var(--card-lt);
+  border: 1px solid var(--line-lt);
   border-radius: var(--radius-lg);
   padding: 22px;
+}
+.on-dark .card {
+  background: var(--basalt);
+  border-color: var(--line-dk);
 }
 
 /* ---- UTILITY ---- */
