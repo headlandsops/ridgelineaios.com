@@ -1,0 +1,91 @@
+---
+import Logo from "./Logo.astro";
+
+const navLinks = [
+  { label: "Program", href: "/program" },
+  { label: "What Is an AI OS", href: "/what-is-an-ai-operating-system" },
+  { label: "About", href: "/about" },
+  { label: "Blog ↗", href: "https://headlandsops.com/blog", external: true },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <Logo variant="dark" size={26} />
+
+    <nav class="nav-desktop" aria-label="Primary">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="nav-link"
+          {...(link.external ? { target: "_blank", rel: "noopener" } : {})}
+        >{link.label}</a>
+      ))}
+      <a href="/apply" class="btn nav-apply">Apply Now</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
+      <span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile" id="navMobile" aria-label="Mobile">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class="nav-link-mobile"
+        {...(link.external ? { target: "_blank", rel: "noopener" } : {})}
+      >{link.label}</a>
+    ))}
+    <a href="/apply" class="btn nav-apply-mobile">Apply Now</a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(26,29,33,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-desktop { display: flex; align-items: center; gap: 24px; }
+  .nav-link {
+    font-family: var(--fb);
+    font-size: 13px;
+    color: #B8C0C4;
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-link:hover { color: var(--fog); }
+  .nav-apply { margin-left: 2px; }
+
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { width: 22px; height: 1.5px; background: var(--fog); display: block; }
+
+  .nav-mobile { display: none; flex-direction: column; gap: 4px; padding: 12px var(--container-pad) 20px; border-top: 1px solid var(--line); }
+  .nav-mobile.open { display: flex; }
+  .nav-link-mobile { font-family: var(--fb); font-size: 15px; color: #B8C0C4; text-decoration: none; padding: 10px 0; }
+  .nav-apply-mobile { margin-top: 8px; text-align: center; }
+
+  @media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .nav-toggle { display: flex; }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById("navToggle");
+  const mobile = document.getElementById("navMobile");
+  toggle?.addEventListener("click", () => {
+    const open = mobile?.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+</script>

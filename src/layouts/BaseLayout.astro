@@ -1,0 +1,48 @@
+---
+/*
+  BaseLayout — the single wrapper every page uses.
+  - Imports self-hosted fonts via @fontsource (NEVER Google CDN — per CLAUDE.md).
+  - Pulls in global tokens/CSS.
+  - Renders sitewide Header + Footer around the page <slot/>.
+*/
+
+// Self-hosted fonts (install: @fontsource/cormorant-garamond @fontsource/instrument-sans @fontsource/jetbrains-mono)
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/500.css";
+import "@fontsource/cormorant-garamond/400-italic.css";
+import "@fontsource/instrument-sans/400.css";
+import "@fontsource/instrument-sans/500.css";
+import "@fontsource/instrument-sans/600.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource/jetbrains-mono/500.css";
+
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+  title = "Ridgeline AIOS — An AI Operating System for Your Company",
+  description = "Ridgeline installs an AI operating system across your entire company — governed, owned by you, built on Claude. A program of Headlands Ops.",
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <Header />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

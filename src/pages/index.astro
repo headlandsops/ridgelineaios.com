@@ -1,17 +1,50 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Ridgeline AIOS — Core UI Test">
+  <!-- This is a CHROME TEST page. It exists only to prove the header, footer,
+       fonts, color tokens, and layout constants render correctly.
+       Real page content gets poured in after the core package is approved. -->
+
+  <section class="bg-ridge">
+    <div class="container section-pad">
+      <p class="eyebrow">Core UI Test</p>
+      <h1 class="h1">One AI operating system,<br/>installed across your company.</h1>
+      <p class="lead" style="margin-top:18px;">This page verifies the shared chrome: self-hosted fonts, the Ridgeline color register, the 1040px container, and the type scale — all matching the Headlands layout constants.</p>
+      <div style="margin-top:28px; display:flex; gap:14px;">
+        <a href="/apply" class="btn">Apply for the Program →</a>
+        <a href="/program" class="btn-ghost">How it works ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-deep">
+    <div class="container section-pad">
+      <p class="eyebrow">Type Scale Check</p>
+      <h2 class="h2" style="margin-top:8px;">Heading two, in Cormorant <span class="italic">italic emphasis</span>.</h2>
+      <h3 class="h3" style="margin-top:18px;">Heading three for subsections.</h3>
+      <p class="body" style="margin-top:14px;">Body copy in Instrument Sans at fifteen pixels, driftwood on the deep panel, line-height 1.75. The mono labels and eyebrows are JetBrains Mono. This rhythm — fog, deep, basalt, tide — alternates so no two identical dark sections sit adjacent without a divider.</p>
+      <p class="mono-meta" style="margin-top:16px;">MONO META · LABELS · STATS · EYEBROWS</p>
+    </div>
+  </section>
+
+  <section class="bg-basalt">
+    <div class="container section-pad">
+      <p class="eyebrow">Card &amp; Token Check</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:18px;">
+        <div class="card"><h3 class="h3" style="font-size:19px;">Tide accent</h3><p class="body" style="font-size:13px; margin-top:6px;">Primary interactive color and labels.</p></div>
+        <div class="card"><h3 class="h3" style="font-size:19px;">Sage system</h3><p class="body" style="font-size:13px; margin-top:6px;">Secondary, terrain, on-dark labels.</p></div>
+        <div class="card"><h3 class="h3" style="font-size:19px;">Gold emphasis</h3><p class="body" style="font-size:13px; margin-top:6px;">Reserved for the primary CTA and key stats only.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-tide" style="border-bottom:none;">
+    <div class="container section-pad" style="text-align:center;">
+      <h2 class="h2" style="color:#fff;">A Tide Pool CTA band.</h2>
+      <p class="lead" style="color:#dde4e7; margin:14px auto 0;">Confirms the accent-background section renders with proper contrast.</p>
+      <div style="margin-top:24px;"><a href="/apply" class="btn">Apply for the Program →</a></div>
+    </div>
+  </section>
+</BaseLayout>

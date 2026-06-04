@@ -1,0 +1,42 @@
+---
+/*
+  Ridgeline AIOS logo — mark + wordmark lockup.
+  Props:
+    variant: "dark" (default) | "light"
+    size:    pixel height of the mark (wordmark scales with it)
+  The mark is the locked layered-hills-into-ocean design.
+  Wordmark is set in Cormorant (self-hosted); on final assets it is outlined,
+  but in-component we use live type so it inherits the loaded font.
+*/
+const { variant = "dark", size = 26 } = Astro.props;
+
+const isLight = variant === "light";
+const water = isLight ? "#3A5963" : "#4E7181";
+const waterOpacity = isLight ? "0.92" : "0.50";
+const sageOpacity = isLight ? "0.40" : "0.30";
+const greenOpacity = isLight ? "0.62" : "0.55";
+const textColor = isLight ? "#2A2D31" : "#ECEAE4";
+const edgeOpacity = isLight ? "0.45" : "0.35";
+
+const markW = Math.round(size * 1.72);
+---
+
+<a href="/" class="rl-logo" aria-label="Ridgeline AIOS — home">
+  <svg width={markW} height={size} viewBox="0 0 248 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M0 50 Q28 33,56 39 Q84 45,110 30 Q135 18,162 24 Q186 30,212 22 Q230 16,248 22 L248 96 L0 96 Z" fill="#8B9E82" opacity={sageOpacity}/>
+    <path d="M0 70 Q34 52,62 57 Q90 62,114 48 Q138 35,168 42 Q192 47,216 40 Q234 33,248 44 L248 96 L0 96 Z" fill="#4A7268" opacity={greenOpacity}/>
+    <path d="M0 84 Q34 82,62 82 Q90 82,114 81 Q138 81,168 82 Q192 82,216 82 Q234 82,248 83 L248 96 L0 96 Z" fill={water} opacity={waterOpacity}/>
+    <path d="M0 84 Q34 82,62 82 Q90 82,114 81 Q138 81,168 82 Q192 82,216 82 Q234 82,248 83" fill="none" stroke="#ECEAE4" stroke-width="1.1" opacity={edgeOpacity} stroke-linecap="round"/>
+    <circle cx="138" cy="16" r="5" fill="#C19A5C" opacity="0.95"/>
+  </svg>
+  <span class="rl-wordmark" style={`color:${textColor}; font-size:${Math.round(size * 0.72)}px;`}>
+    <span class="rl-word-r">Ridgeline</span><span class="rl-word-a">AIOS</span>
+  </span>
+</a>
+
+<style>
+  .rl-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .rl-wordmark { font-family: var(--fd); line-height: 1; white-space: nowrap; }
+  .rl-word-r { font-weight: 500; letter-spacing: 0.5px; }
+  .rl-word-a { font-weight: 400; letter-spacing: 3px; margin-left: 7px; }
+</style>

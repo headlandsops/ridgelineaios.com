@@ -1,0 +1,83 @@
+---
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  { label: "Program", href: "/program" },
+  { label: "What Is an AI OS", href: "/what-is-an-ai-operating-system" },
+  { label: "About", href: "/about" },
+  { label: "Apply", href: "/apply" },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo-row">
+        <svg width="46" height="27" viewBox="0 0 248 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0 50 Q28 33,56 39 Q84 45,110 30 Q135 18,162 24 Q186 30,212 22 Q230 16,248 22 L248 96 L0 96 Z" fill="#8B9E82" opacity="0.30"/>
+          <path d="M0 70 Q34 52,62 57 Q90 62,114 48 Q138 35,168 42 Q192 47,216 40 Q234 33,248 44 L248 96 L0 96 Z" fill="#4A7268" opacity="0.55"/>
+          <path d="M0 84 Q34 82,62 82 Q90 82,114 81 Q138 81,168 82 Q192 82,216 82 Q234 82,248 83 L248 96 L0 96 Z" fill="#4E7181" opacity="0.50"/>
+          <circle cx="138" cy="16" r="5" fill="#C19A5C" opacity="0.95"/>
+        </svg>
+        <span class="footer-wordmark">Ridgeline<span class="fw-a">AIOS</span></span>
+      </div>
+      <p class="footer-tagline">An AI operating system for founder-led companies. Built on Claude.</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <span class="footer-col-label">Explore</span>
+      {footerLinks.map((l) => <a href={l.href} class="footer-link">{l.label}</a>)}
+    </nav>
+
+    <nav class="footer-nav" aria-label="Headlands">
+      <span class="footer-col-label">The Practice</span>
+      <a href="https://headlandsops.com" target="_blank" rel="noopener" class="footer-link">Headlands Ops ↗</a>
+      <a href="https://headlandsops.com/blog" target="_blank" rel="noopener" class="footer-link">The Vantage Point ↗</a>
+    </nav>
+  </div>
+
+  <div class="container footer-baseline">
+    <span class="mono-meta">© {year} Headlands Ops, LLC · A Product of Headlands Ops</span>
+    <span class="mono-meta footer-built">Marin County, California · Built on Claude</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--ridge); border-top: 1px solid var(--line); padding-top: 56px; }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+  }
+  .footer-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .footer-wordmark { font-family: var(--fd); font-size: 19px; color: var(--fog); }
+  .fw-a { font-weight: 400; letter-spacing: 3px; margin-left: 6px; }
+  .footer-tagline { font-size: 14px; color: var(--slate); line-height: 1.6; max-width: 320px; }
+
+  .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+  .footer-col-label {
+    font-family: var(--fm);
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 4px;
+  }
+  .footer-link { font-size: 13px; color: var(--driftwood); text-decoration: none; transition: color 0.15s; }
+  .footer-link:hover { color: var(--fog); }
+
+  .footer-baseline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 22px;
+    padding-bottom: 30px;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+    .footer-baseline { flex-direction: column; gap: 8px; align-items: flex-start; }
+  }
+</style>
